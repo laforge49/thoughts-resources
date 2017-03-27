@@ -1,0 +1,3 @@
+{:require  [escherize-cljs.app]
+ :init-fns [escherize-cljs.app/init]
+ :compiler-options {:asset-path "js/app.out"}}
