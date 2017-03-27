@@ -1,0 +1,3 @@
+{:require  [edn-reader.app]
+ :init-fns [edn-reader.app/init]
+ :compiler-options {:asset-path "js/app.out"}}
