@@ -6,3 +6,4 @@ How to read an edn resource in clojurescript
 - [edn-xhr in OM](https://github.com/swannodette/om-sync/blob/master/src/om_sync/util.cljs)
 - [osbert's extraction of edn-xhr](https://github.com/osbert/edn-xhr/blob/master/src/cljs/edn_xhr/core.cljs)
 - [get an absolute url](https://davidwalsh.name/get-absolute-url)
+- [reading from classpath (java)](http://stackoverflow.com/questions/1464291/how-to-really-read-text-file-from-classpath-in-java)
