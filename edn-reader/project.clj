@@ -12,4 +12,4 @@
    [org.clojure/clojurescript "1.9.293"]
    [reagent "0.6.0"]]
   :source-paths
-  ["src/cljs" "resources"])
+  ["src" "resources"])
