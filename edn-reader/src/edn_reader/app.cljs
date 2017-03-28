@@ -2,11 +2,12 @@
   (:require [reagent.core :as reagent :refer [atom]]
             [resource.core :as resource]))
 
-(def text-atom (atom "abc"))
+(def edn-atom (atom nil))
 
 (defn something
   []
-  (resource/getText "config.edn" text-atom))
+  (resource/get-edn "config.edn" edn-atom)
+  "")
 
 (defn some-component []
   [:div
@@ -14,13 +15,12 @@
    [:p.someclass
     "I have " [:strong "bold"]
     [:span {:style {:color "red"}} " and red"]
-    " text."]
-   [:input {:type "button" :value "Click me!"
-            :on-click something}]])
+    " text."]])
 
 (defn calling-component []
   (fn []
-  [:div @text-atom
+  [:div (:string @edn-atom)
+   (something)
    [some-component]]))
 
 (defn init []

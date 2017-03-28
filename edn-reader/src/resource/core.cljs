@@ -1,8 +1,9 @@
-(ns resource.core)
+(ns resource.core
+  (:require [cljs.reader :as reader]))
 
 (def a-atom (atom nil))
 
-(defn getAbsoluteUrl
+(defn get-absolute-url
   [url]
   (if (nil? @a-atom)
     (reset! a-atom (.createElement js/document "a")))
@@ -10,17 +11,23 @@
   (aget @a-atom "href")
   )
 
-(defn getData
+(defn get-data
   [url f]
-  (let [url (getAbsoluteUrl url)]
+  (let [url (get-absolute-url url)]
     (js/goog.net.XhrIo.send url
                 (fn [e]
                   (let [xhr (aget e "target")]
                     (f (.getResponseText xhr)))))
     ))
 
-(defn getText
+(defn get-text
   [url text-atom]
-  (getData url
-           (fn [txt]
+  (get-data url
+            (fn [txt]
              (reset! text-atom txt))))
+
+(defn get-edn
+  [url text-atom]
+  (get-data url
+            (fn [txt]
+             (reset! text-atom (reader/read-string txt)))))
