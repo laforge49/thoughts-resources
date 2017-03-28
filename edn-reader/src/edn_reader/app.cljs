@@ -2,10 +2,11 @@
   (:require [reagent.core :as reagent :refer [atom]]
             [resource.core :as resource]))
 
+(def text-atom (atom "abc"))
+
 (defn something
   []
-  (.log js/console
-        (resource/getAbsoluteUrl "config.edn")))
+  (resource/getText "config.edn" text-atom))
 
 (defn some-component []
   [:div
@@ -19,7 +20,7 @@
 
 (defn calling-component []
   (fn []
-  [:div "Parent component"
+  [:div @text-atom
    [some-component]]))
 
 (defn init []
