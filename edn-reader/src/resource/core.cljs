@@ -16,8 +16,7 @@
     (js/goog.net.XhrIo.send url
                 (fn [e]
                   (let [xhr (aget e "target")]
-                    (f (.getResponseText xhr))))
-                            nil nil nil nil nil)
+                    (f (.getResponseText xhr)))))
     ))
 
 (defn getText
